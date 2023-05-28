@@ -1,1 +1,112 @@
-{}
+{
+  "reactFunctionComponentExport": {
+    "prefix": "rfce",
+    "body": "export default function ${1:Index}() {\n  return <div>${1:Index}</div>;\n}\n",
+    "description": "创建一个默认导出的ts函数组件"
+  },
+  "reactArrowFunctionComponentExport": {
+    "prefix": "rafce",
+    "body": "import { FC } from \"react\";\n\nconst ${1:Index}: FC = () => {\n  return <div>${1:Index}</div>;\n};\n\nexport default ${1:Index};\n",
+    "description": "创建一个默认导出的ts箭头函数组件"
+  },
+  "reactErrorBoundaryComponentExport": {
+    "prefix": "rebce",
+    "body": "import { Component, ReactNode } from \"react\";\n\ntype TProps = { children: ReactNode };\ntype TState = { hasError: boolean };\n\nexport default class ErrorBoundary extends Component<TProps, TState> {\n  constructor(props: TProps) {\n    super(props);\n    this.state = { hasError: false };\n  }\n\n  componentDidCatch(error: Error, info: unknown) {\n    this.setState({ hasError: true });\n    console.error(error, info);\n  }\n\n  render() {\n    if (this.state.hasError) {\n      return <div>Error</div>;\n    }\n    return this.props.children;\n  }\n}\n",
+    "description": "创建一个默认导出的ErrorBoundary组件"
+  },
+  "useCallback": {
+    "prefix": "useCallback",
+    "body": "const cachedCallback = useCallback(() => {\n ${1} \n}, []);\n;",
+    "description": "useCallback hook"
+  },
+  "useContext": {
+    "prefix": "useContext",
+    "body": "const value = useContext(${1});",
+    "description": "useContext hook"
+  },
+  "useDebugValue": {
+    "prefix": "useDebugValue",
+    "body": "useDebugValue(${1});",
+    "description": "useDebugValue hook"
+  },
+  "useDeferredValue": {
+    "prefix": "useDeferredValue",
+    "body": "const deferredValue = useDeferredValue(${1});",
+    "description": "useDeferredValue hook"
+  },
+  "useEffect": {
+    "prefix": "useEffect",
+    "body": "useEffect(() => {\n ${1} \n}, []);\n",
+    "description": "useEffect hook"
+  },
+  "useId": {
+    "prefix": "useId",
+    "body": "const ${1:id} = useId();",
+    "description": "useId hook"
+  },
+  "useImperativeHandle": {
+    "prefix": "useImperativeHandle",
+    "body": "useImperativeHandle(ref, () => {\n ${1} \n}), [];\n",
+    "description": "useImperativeHandle hook"
+  },
+  "useInsertionEffect": {
+    "prefix": "useInsertionEffect",
+    "body": "useInsertionEffect(() => {\n ${1} \n}, []);\n",
+    "description": "useInsertionEffect hook"
+  },
+  "useLayoutEffect": {
+    "prefix": "useLayoutEffect",
+    "body": "useLayoutEffect(() => {\n ${1} \n}, []);\n",
+    "description": "useLayoutEffect hook"
+  },
+  "useMemo": {
+    "prefix": "useMemo",
+    "body": "const cachedValue = useMemo(() => ${1}, []);",
+    "description": "useMemo hook"
+  },
+  "useReducer": {
+    "prefix": "useReducer",
+    "body": "const [state, dispatch] = useReducer((state: any, action: any) => {\n  return {};\n}, {${1}});\n",
+    "description": "useState hook"
+  },
+  "useRef": {
+    "prefix": "useRef",
+    "body": "const ref = useRef(${1});",
+    "description": "useState hook"
+  },
+  "useState": {
+    "prefix": "useState",
+    "body": "const [${1:State}, set${1:State}] = useState();",
+    "description": "useState hook"
+  },
+  "useSyncExternalStore": {
+    "prefix": "useSyncExternalStore",
+    "body": "const snapshot = useSyncExternalStore(${1:store}.subscribe, ${1:store}.getSnapshot);",
+    "description": "useSyncExternalStore hook"
+  },
+  "createContext": {
+    "prefix": "createContext",
+    "body": "import { createContext, FC, ReactNode } from \"react\";\n\nconst defaultValue = {};\nconst ${1}Context = createContext(defaultValue);\n\ntype TProps = {\n  children: ReactNode;\n};\n\nconst ${1}Provider: FC<TProps> = ({ children }) => {\n  return <${1}Context.Provider value={defaultValue}>{children}</${1}Context.Provider>;\n};\n\nexport { ${1}Context, ${1}Provider };\n",
+    "description": "createContext API"
+  },
+  "forwardRef": {
+    "prefix": "forwardRef",
+    "body": "const ${1:Component}Forward = forwardRef(function ${1:Component}Forward(props, ref) {\n  return <${1:Component} {...props} ref={ref} />;\n});\n",
+    "description": "forwardRef API"
+  },
+  "lazy": {
+    "prefix": "lazy",
+    "body": "const ${1:Component} = lazy(() => import(\"\"));",
+    "description": "lazy API"
+  },
+  "memo": {
+    "prefix": "memo",
+    "body": "const Memoized${1:Component} = memo(${1:Component});",
+    "description": "memo API"
+  },
+  "startTransition": {
+    "prefix": "startTransition",
+    "body": "startTransition(() => {\n ${1} \n});\n",
+    "description": "startTransition API"
+  }
+}

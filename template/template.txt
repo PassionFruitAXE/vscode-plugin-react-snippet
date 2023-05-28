@@ -1,0 +1,23 @@
+import { Component, ReactNode } from "react";
+
+type TProps = { children: ReactNode };
+type TState = { hasError: boolean };
+
+export default class ErrorBoundary extends Component<TProps, TState> {
+  constructor(props: TProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  componentDidCatch(error: Error, info: unknown) {
+    this.setState({ hasError: true });
+    console.error(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Error</div>;
+    }
+    return this.props.children;
+  }
+}
