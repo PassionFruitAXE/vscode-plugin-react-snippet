@@ -31,13 +31,12 @@
 | memo                 | React API                |
 | startTransition      | React API                |
 
-
-
 ## Release Notes
+
+### 0.0.5
+
+增加`.ts`文件支持
 
 ### 0.0.1
 
 完善基本代码片段
-
-
-
