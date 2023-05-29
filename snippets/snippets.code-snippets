@@ -76,7 +76,7 @@
   },
   "useState": {
     "prefix": "useState",
-    "body": "const [${1:State}, set${1:State}] = useState();",
+    "body": "const [${1:state}] = useState();",
     "description": "useState hook"
   },
   "useSyncExternalStore": {
