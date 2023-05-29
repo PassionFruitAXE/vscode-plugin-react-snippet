@@ -1,8 +1,10 @@
 {
   "name": "react-snippet",
   "displayName": "react-snippet",
-  "description": "",
+  "description": "React typescript snippet",
   "version": "0.0.1",
+  "publisher": "passionfruit",
+  "icon": "./images/react.png",
   "engines": {
     "vscode": "^1.78.0"
   },
