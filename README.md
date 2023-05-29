@@ -2,7 +2,7 @@
 
 ## VS Code Plugin —— react-snippet
 
-适用于`.tsx`文件的代码片段
+适用于`.ts` `.tsx`文件的代码片段
 
 主要包含以下代码片段：
 
