@@ -1,12 +1,12 @@
 {
-  "name": "react-snippet",
-  "displayName": "react-snippet",
-  "description": "React typescript snippet",
-  "version": "0.0.1",
+  "name": "ts-react-snippet",
+  "displayName": "ts-react-snippet",
+  "description": "Typescript react snippet",
+  "version": "0.0.3",
   "publisher": "passionfruit",
-  "icon": "./images/react.png",
+  "icon": "images/react.png",
   "engines": {
-    "vscode": "^1.78.0"
+    "vscode": "^0.10.x"
   },
   "categories": [
     "Snippets"
@@ -18,6 +18,13 @@
         "path": "./snippets/snippets.code-snippets"
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PassionFruitAXE/vscode-plugin-react-snippet"
+  },
+  "scripts": {
+    "build": "vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.2.5"
