@@ -14,6 +14,11 @@
     "body": "import { Component, ReactNode } from \"react\";\n\ntype TProps = { children: ReactNode };\ntype TState = { hasError: boolean };\n\nexport default class ErrorBoundary extends Component<TProps, TState> {\n  constructor(props: TProps) {\n    super(props);\n    this.state = { hasError: false };\n  }\n\n  componentDidCatch(error: Error, info: unknown) {\n    this.setState({ hasError: true });\n    console.error(error, info);\n  }\n\n  render() {\n    if (this.state.hasError) {\n      return <div>Error</div>;\n    }\n    return this.props.children;\n  }\n}\n",
     "description": "创建一个默认导出的ErrorBoundary组件"
   },
+  "reactCustomHookFunctionExport": {
+    "prefix": "rchfe",
+    "body": "export default function ${1:Index}() {\n  return {};\n}\n",
+    "description": "创建一个默认导出的自定义Hook函数"
+  },
   "useCallback": {
     "prefix": "useCallback",
     "body": "const cachedCallback = useCallback(() => {\n ${1} \n}, []);\n;",
@@ -66,7 +71,7 @@
   },
   "useReducer": {
     "prefix": "useReducer",
-    "body": "const [state, dispatch] = useReducer((state: any, action: any) => {\n  return {};\n}, {${1}});\n",
+    "body": "const initialState = {}\nconst [state, dispatch] = useReducer<Reducer<any, any>>((state, action) => {\n  return state;\n}, initialState);\n",
     "description": "useState hook"
   },
   "useRef": {
