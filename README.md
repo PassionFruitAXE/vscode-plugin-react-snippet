@@ -1,6 +1,8 @@
 # react-snippet README
 
-## VS Code Plugin —— react-snippet
+## Features
+
+![example](/images/example.gif)
 
 适用于`.ts` `.tsx`文件的代码片段
 
@@ -40,3 +42,5 @@
 ### 0.0.1
 
 完善基本代码片段
+
+---
