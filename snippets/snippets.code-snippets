@@ -1,22 +1,22 @@
 {
   "reactFunctionComponentExport": {
     "prefix": "rfce",
-    "body": "export default function ${1:Index}() {\n  return <div>${1:Index}</div>;\n}\n",
+    "body": "export default function ${1:$TM_FILENAME_BASE}() {\n\treturn <div>${1:$TM_FILENAME_BASE}</div>;\n}\n",
     "description": "创建一个默认导出的ts函数组件"
   },
   "reactArrowFunctionComponentExport": {
     "prefix": "rafce",
-    "body": "import { FC } from \"react\";\n\nconst ${1:Index}: FC = () => {\n  return <div>${1:Index}</div>;\n};\n\nexport default ${1:Index};\n",
+    "body": "import { FC } from \"react\";\n\nconst ${1:$TM_FILENAME_BASE}: FC = () => {\n\treturn <div>${1:$TM_FILENAME_BASE}</div>;\n};\n\nexport default ${1:$TM_FILENAME_BASE};\n",
     "description": "创建一个默认导出的ts箭头函数组件"
   },
   "reactErrorBoundaryComponentExport": {
     "prefix": "rebce",
-    "body": "import { Component, ReactNode } from \"react\";\n\ntype TProps = { children: ReactNode };\ntype TState = { hasError: boolean };\n\nexport default class ErrorBoundary extends Component<TProps, TState> {\n  constructor(props: TProps) {\n    super(props);\n    this.state = { hasError: false };\n  }\n\n  componentDidCatch(error: Error, info: unknown) {\n    this.setState({ hasError: true });\n    console.error(error, info);\n  }\n\n  render() {\n    if (this.state.hasError) {\n      return <div>Error</div>;\n    }\n    return this.props.children;\n  }\n}\n",
+    "body": "import { Component, ReactNode } from \"react\";\n\ntype TProps = { children: ReactNode };\ntype TState = { hasError: boolean };\n\nexport default class ErrorBoundary extends Component<TProps, TState> {\n\tconstructor(props: TProps) {\n\t\tsuper(props);\n\t\tthis.state = { hasError: false };\n\t}\n\n\tcomponentDidCatch(error: Error, info: unknown) {\n\t\tthis.setState({ hasError: true });\n\t\tconsole.error(error, info);\n\t}\n\n\trender() {\n\t\tif (this.state.hasError) {\n\t\t\treturn <div>Error</div>;\n\t\t}\n\t\treturn this.props.children;\n\t}\n}\n",
     "description": "创建一个默认导出的ErrorBoundary组件"
   },
   "reactCustomHookFunctionExport": {
     "prefix": "rchfe",
-    "body": "export default function ${1:Index}() {\n  return {};\n}\n",
+    "body": "export default function ${1:$TM_FILENAME_BASE}() {\n\treturn {};\n}\n",
     "description": "创建一个默认导出的自定义Hook函数"
   },
   "useCallback": {
@@ -41,7 +41,7 @@
   },
   "useEffect": {
     "prefix": "useEffect",
-    "body": "useEffect(() => {\n ${1} \n}, []);\n",
+    "body": "useEffect(() => {\n\t${1}\n}, []);\n",
     "description": "useEffect hook"
   },
   "useId": {
@@ -51,17 +51,17 @@
   },
   "useImperativeHandle": {
     "prefix": "useImperativeHandle",
-    "body": "useImperativeHandle(ref, () => {\n ${1} \n}), [];\n",
+    "body": "useImperativeHandle(ref, () => {\n\t${1}\n}), [];\n",
     "description": "useImperativeHandle hook"
   },
   "useInsertionEffect": {
     "prefix": "useInsertionEffect",
-    "body": "useInsertionEffect(() => {\n ${1} \n}, []);\n",
+    "body": "useInsertionEffect(() => {\n\t${1}\n}, []);\n",
     "description": "useInsertionEffect hook"
   },
   "useLayoutEffect": {
     "prefix": "useLayoutEffect",
-    "body": "useLayoutEffect(() => {\n ${1} \n}, []);\n",
+    "body": "useLayoutEffect(() => {\n\t${1}\n}, []);\n",
     "description": "useLayoutEffect hook"
   },
   "useMemo": {
@@ -71,7 +71,7 @@
   },
   "useReducer": {
     "prefix": "useReducer",
-    "body": "const initialState = {}\nconst [state, dispatch] = useReducer<Reducer<any, any>>((state, action) => {\n  return state;\n}, initialState);\n",
+    "body": "const initialState = {}\nconst [state, dispatch] = useReducer<Reducer<any, any>>((state, action) => {\n\treturn state;\n}, initialState);\n",
     "description": "useState hook"
   },
   "useRef": {
@@ -81,7 +81,7 @@
   },
   "useState": {
     "prefix": "useState",
-    "body": "const [${1:state}] = useState();",
+    "body": "const [${1:state}, set${1:State}] = useState();",
     "description": "useState hook"
   },
   "useSyncExternalStore": {
@@ -91,12 +91,12 @@
   },
   "createContext": {
     "prefix": "createContext",
-    "body": "import { createContext, FC, ReactNode } from \"react\";\n\nconst defaultValue = {};\nconst ${1}Context = createContext(defaultValue);\n\ntype TProps = {\n  children: ReactNode;\n};\n\nconst ${1}Provider: FC<TProps> = ({ children }) => {\n  return <${1}Context.Provider value={defaultValue}>{children}</${1}Context.Provider>;\n};\n\nexport { ${1}Context, ${1}Provider };\n",
+    "body": "import { createContext, FC, ReactNode, useContext } from \"react\";\n\nconst ${1}Context = createContext<unknown | undefined>(void 0);\n\ntype TProps = {\n  children: ReactNode;\n};\n\nconst ${1}Provider: FC<TProps> = ({ children }) => {\n\tconst defaultValue = {};\n\treturn <${1}Context.Provider value={defaultValue}>{children}</${1}Context.Provider>;\n};\n\nconst use${1}ContextValue = () => {\n  const store = useContext(${1}Context);\n  if (!store) throw new Error(`no ${1}Provider found`);\n  return store;\n};\n\nexport { ${1}Context, ${1}Provider, use${1}ContextValue };\n",
     "description": "createContext API"
   },
   "forwardRef": {
     "prefix": "forwardRef",
-    "body": "const ${1:Component}Forward = forwardRef(function ${1:Component}Forward(props, ref) {\n  return <${1:Component} {...props} ref={ref} />;\n});\n",
+    "body": "const ${1:Component}Forward = forwardRef(function ${1:Component}Forward(props, ref) {\n\treturn <${1:Component} {...props} ref={ref} />;\n});\n",
     "description": "forwardRef API"
   },
   "lazy": {
@@ -111,7 +111,7 @@
   },
   "startTransition": {
     "prefix": "startTransition",
-    "body": "startTransition(() => {\n ${1} \n});\n",
+    "body": "startTransition(() => {\n\t${1}\n});\n",
     "description": "startTransition API"
   }
 }
