@@ -2,7 +2,7 @@
   "name": "ts-react-snippet",
   "displayName": "ts-react-snippet",
   "description": "Typescript react snippet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "passionfruit",
   "icon": "images/react.png",
   "engines": {

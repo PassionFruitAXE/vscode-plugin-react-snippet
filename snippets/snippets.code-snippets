@@ -81,7 +81,7 @@
   },
   "useState": {
     "prefix": "useState",
-    "body": "const [${1:state}, set${1:State}] = useState();",
+    "body": "const [${1:state}, set${2:State}] = useState();",
     "description": "useState hook"
   },
   "useSyncExternalStore": {
@@ -91,7 +91,7 @@
   },
   "createContext": {
     "prefix": "createContext",
-    "body": "import { createContext, FC, ReactNode, useContext } from \"react\";\n\nconst ${1}Context = createContext<unknown | undefined>(void 0);\n\ntype TProps = {\n  children: ReactNode;\n};\n\nconst ${1}Provider: FC<TProps> = ({ children }) => {\n\tconst defaultValue = {};\n\treturn <${1}Context.Provider value={defaultValue}>{children}</${1}Context.Provider>;\n};\n\nconst use${1}ContextValue = () => {\n  const store = useContext(${1}Context);\n  if (!store) throw new Error(`no ${1}Provider found`);\n  return store;\n};\n\nexport { ${1}Context, ${1}Provider, use${1}ContextValue };\n",
+    "body": "import { createContext, FC, ReactNode, useContext } from \"react\";\n\nconst ${1}Context = createContext<${2:unknown} | undefined>(void 0);\n\ntype TProps = {\n  children: ReactNode;\n};\n\nconst ${1}Provider: FC<TProps> = ({ children }) => {\n\tconst defaultValue: ${2:unknown} = {};\n\treturn <${1}Context.Provider value={defaultValue}>{children}</${1}Context.Provider>;\n};\n\nconst use${1}ContextValue = () => {\n  const store = useContext(${1}Context);\n  if (!store) throw new Error(`no ${1}Provider found`);\n  return store;\n};\n\nexport { ${1}Context, ${1}Provider, use${1}ContextValue };\n",
     "description": "createContext API"
   },
   "forwardRef": {
